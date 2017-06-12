@@ -88,14 +88,19 @@ function showit(val){
 function makeit(no){
 	if(t==0){
                document.getElementById('tile'+no).innerHTML= tilesItem[no-1]; t=1;}
-               else if(tilesItem[no-1]==tilesItem[m]){
+               else if(m==no-1){document.getElementById('tile'+no).innerHTML= ""; t=0; s=s+1;}
+               else if(m!=no&&tilesItem[no-1]==tilesItem[m]){
                	document.getElementById('tile'+no).innerHTML= tilesItem[no-1]; t=0; s=s+1; 
                document.getElementById('tile'+no).style.backgroundColor="#404040";
+               document.getElementById('tile'+no).style.pointerEvents = 'none';
                document.getElementById('tile'+(m+1)).style.backgroundColor="#404040";
+               document.getElementById('tile'+(m+1)).style.pointerEvents = 'none';
 
                }
-               else {document.getElementById('tile'+(m+1)).innerHTML= ""; t=0; s=s+1;
-                     showit(no);
+               else {showit(no);
+                      
+               	     document.getElementById('tile'+(m+1)).innerHTML= ""; t=0; s=s+1;
+                     
 
                    };
                
