@@ -80,7 +80,12 @@ var m=0;
 s=0;
 function showit(val){
 	document.getElementById('tile'+val).innerHTML= tilesItem[val-1];
-               setTimeout(function(){ document.getElementById('tile'+val).innerHTML= ""; 
+	
+               setTimeout(function(){ document.getElementById('tile'+val).innerHTML= "";
+
+                     	                     }, 500);
+               setTimeout(function(){ document.getElementById('tile'+(m+1)).innerHTML= ""; 
+
                      	                     }, 500);
 
 }
@@ -99,12 +104,14 @@ function makeit(no){
                }
                else {showit(no);
                       
-               	     document.getElementById('tile'+(m+1)).innerHTML= ""; t=0; s=s+1;
+               	      t=0; s=s+1;
                      
 
                    };
+               setTimeout(function(){ m=no-1;
+
+                     	                     }, 500);
                
-               m=no-1;
                console.log(s);
                document.getElementById("turns").innerHTML="Turns: "+s;
                setTimeout(function(){com();} , 500);
